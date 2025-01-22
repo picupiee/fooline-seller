@@ -1,17 +1,17 @@
 import { ScrollView, Text, View } from "react-native";
 import HeroSection from "../components/HeroSection";
+import FeaturedProducts from "../components/FeaturedProducts";
+import SearchBar from "../components/SearchBar";
+import Categories from "../components/Categories";
 
 export default function HomeScreen() {
-    return (
-      <ScrollView className="flex-1 bg-white">
-        {/* Will add components in here */}
-        {/* 
-        <FeaturedProducts />
-        <SearchBar />
-        <Categories />
-        */}
-        <HeroSection />
-      </ScrollView>
-    );
-  }
-  
+  return (
+    <ScrollView className="flex-1 bg-white">
+      {/* Components */}
+      <HeroSection />
+      <FeaturedProducts />
+      <SearchBar />
+      <Categories />
+    </ScrollView>
+  );
+}
