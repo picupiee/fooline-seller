@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "fooline",
+    "main": "app/_layout.tsx",
     "slug": "fooline",
     "version": "1.0.0",
     "orientation": "portrait",
