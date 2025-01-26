@@ -10,6 +10,11 @@ interface Product {
 }
 
 const ProductCard: React.FC<Product> = ({ product }) => {
+  const formattedPrice = new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 0,
+  }).format(product.price);
   return (
     <View className="mr-4 p-2">
       <Image
@@ -17,7 +22,7 @@ const ProductCard: React.FC<Product> = ({ product }) => {
         className="w-32 h-32 rounded-md"
       />
       <Text className="text-sm mt-2">{product.name}</Text>
-      <Text className="text-sm text-gray-500">Rp {product.price}</Text>
+      <Text className="text-sm text-gray-500">{formattedPrice}</Text>
       <Pressable className="absolute top-2 right-3 opacity-60 active:opacity-100">
         <Text className="text-lg">♥</Text>
       </Pressable>

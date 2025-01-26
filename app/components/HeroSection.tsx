@@ -22,8 +22,8 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <View>
-      <View className="flex-1">
+    <View className="flex-1">
+      <View>
         <View className="p-4">
           <Text className="text-black font-bold text-3xl">
             Good {hourGreeting}
