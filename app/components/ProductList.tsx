@@ -5,7 +5,12 @@ import ProductCard from "./ProductCard";
 
 export default function ProductList() {
   const renderItem = ({ item }: { item: Product }) => (
-    <ProductCard product={item} />
+    <ProductCard
+      product={item}
+      viewClassName="mb-4 p-2"
+      textClassName="text-md"
+      imageResize={{ width: 156, height: 156 }}
+    />
   );
 
   return (
@@ -16,7 +21,7 @@ export default function ProductList() {
         renderItem={renderItem}
         keyExtractor={(item) => item.id.toString()}
         numColumns={2}
-        columnWrapperStyle={{ justifyContent: "space-around" }}
+        columnWrapperClassName="justify-between"
         showsVerticalScrollIndicator={false}
         scrollEnabled={false}
       />

@@ -5,7 +5,12 @@ import ProductCard from "./ProductCard";
 import { products } from "../data/sample-product";
 
 const renderItem = ({ item }: { item: Product }) => (
-  <ProductCard product={item} />
+  <ProductCard
+    product={item}
+    viewClassName="mr-4 p-2"
+    textClassName="text-xs"
+    imageResize={{ width: 128, height: 128 }}
+  />
 );
 
 export default function FeaturedProducts() {
@@ -19,12 +24,6 @@ export default function FeaturedProducts() {
         horizontal
         showsHorizontalScrollIndicator={false}
       />
-      {/* ScrollView disabled for now */}
-      {/* <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </ScrollView> */}
     </View>
   );
 }

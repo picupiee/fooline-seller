@@ -1,6 +1,7 @@
 // app/components/ProductCard.tsx
 import React from "react";
-import { View, Text, Image, Pressable } from "react-native";
+import { View, Text, Pressable } from "react-native";
+import { Image } from "expo-image";
 
 interface Product {
   id: number;
@@ -9,26 +10,36 @@ interface Product {
   imageUrl: string;
 }
 
-const ProductCard: React.FC<Product> = ({ product }) => {
+interface ProductCardProps {
+  product: Product;
+  viewClassName?: string;
+  textClassName?: string;
+  imageResize: { widht: number; height: number };
+}
+
+const ProductCard: React.FC<Product> = ({
+  product,
+  viewClassName,
+  textClassName,
+  imageResize,
+}) => {
   const formattedPrice = new Intl.NumberFormat("id-ID", {
     style: "currency",
     currency: "IDR",
     minimumFractionDigits: 0,
   }).format(product.price);
   return (
-    <View className="p-2">
+    <View className={`border-2 border-black rounded-md ${viewClassName}`}>
       <Image
         source={{ uri: product.imageUrl }}
-        className="w-32 h-32 rounded-md"
+        style={imageResize}
+        className="rounded-md mb-2 w-32 h-32"
       />
-      <Text className="text-sm mt-2">{product.name}</Text>
-      <Text className="text-sm text-gray-500">{formattedPrice}</Text>
+      <Text className={`${textClassName}`}>{product.name}</Text>
+      <Text className={`${textClassName} text-gray-500`}>{formattedPrice}</Text>
       <Pressable className="absolute top-2 right-3 opacity-60 active:opacity-100">
         <Text className="text-lg">♥</Text>
       </Pressable>
-      {/* <Pressable className="absolute bottom-2 right-3 opacity-60 active:opacity-100">
-        <Text className="text-sm">🛒</Text>
-      </Pressable> */}
     </View>
   );
 };
