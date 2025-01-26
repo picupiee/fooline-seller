@@ -3,6 +3,7 @@ import HeroSection from "../components/HeroSection";
 import FeaturedProducts from "../components/FeaturedProducts";
 import SearchBar from "../components/SearchBar";
 import Categories from "../components/Categories";
+import ProductList from "../components/ProductList";
 
 export default function HomeScreen() {
   return (
@@ -12,6 +13,7 @@ export default function HomeScreen() {
       <FeaturedProducts />
       <SearchBar />
       <Categories />
+      <ProductList />
     </ScrollView>
   );
 }
