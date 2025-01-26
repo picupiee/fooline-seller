@@ -10,22 +10,22 @@ export default function HeroSection() {
     const date = new Date();
     const hour = date.getHours();
     if (hour < 12) {
-      setTagline("It is a good time for a breakfast !");
+      setTagline("It is a good time for a breakfast!");
       setHourGreeting("Morning");
-    } else if (hour < 17) {
-      setTagline("It is a good time for a lunch !");
+    } else if (hour < 16) {
+      setTagline("It is a good time for a lunch!");
       setHourGreeting("Afternoon");
     } else {
-      setTagline("Let's end the day with good dinner from home !");
+      setTagline("Let's end the day with good dinner from home!");
       setHourGreeting("Evening");
     }
   }, []);
 
   return (
     <View>
-      <View className="flex items-start justify-center p-0">
+      <View className="flex-1">
         <View className="p-4">
-          <Text className="text-black font-bold text-[40px]">
+          <Text className="text-black font-bold text-3xl">
             Good {hourGreeting}
           </Text>
           <Text className="text-black font-semibold text-xl">{tagline}</Text>
