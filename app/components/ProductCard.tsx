@@ -11,7 +11,6 @@ interface Product {
 }
 
 interface ProductCardProps {
-  product: Product;
   viewClassName?: string;
   textClassName?: string;
   imageResize: { widht: number; height: number };
