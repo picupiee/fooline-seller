@@ -18,6 +18,7 @@ export default function ProductList() {
         numColumns={2}
         columnWrapperStyle={{ justifyContent: "space-around" }}
         showsVerticalScrollIndicator={false}
+        scrollEnabled={false}
       />
     </View>
   );

@@ -16,7 +16,7 @@ const ProductCard: React.FC<Product> = ({ product }) => {
     minimumFractionDigits: 0,
   }).format(product.price);
   return (
-    <View className="mr-4 p-2">
+    <View className="p-2">
       <Image
         source={{ uri: product.imageUrl }}
         className="w-32 h-32 rounded-md"
