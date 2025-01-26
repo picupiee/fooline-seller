@@ -7,7 +7,7 @@ export default function ProductList() {
   const renderItem = ({ item }: { item: Product }) => (
     <ProductCard
       product={item}
-      viewClassName="mb-4 p-2"
+      viewClassName="mb-2 p-2 sm:mr-4 sm:mb-4"
       textClassName="text-md"
       imageResize={{ width: 156, height: 156 }}
     />
@@ -21,7 +21,7 @@ export default function ProductList() {
         renderItem={renderItem}
         keyExtractor={(item) => item.id.toString()}
         numColumns={2}
-        columnWrapperClassName="justify-between"
+        columnWrapperClassName="justify-between sm:justify-start"
         showsVerticalScrollIndicator={false}
         scrollEnabled={false}
       />
