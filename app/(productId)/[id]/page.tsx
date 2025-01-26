@@ -1,7 +1,8 @@
-import { useLocalSearchParams } from "expo-router";
-import { View, Text } from "react-native";
+import { router, useLocalSearchParams } from "expo-router";
+import { View, Text, Pressable } from "react-native";
 import { Image } from "expo-image";
 import { products } from "../../data/sample-product";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 export default function ProductDetailScreen() {
   const { id } = useLocalSearchParams(); // Access id from params
@@ -16,15 +17,34 @@ export default function ProductDetailScreen() {
     );
   }
 
+  const formattedPrice = new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 0,
+  }).format(product.price);
+
+  console.log(product.name, "is visited");
+
   return (
-    <View className="flex-1 items-center justify-center">
+    <View className="">
+      <MaterialCommunityIcons
+        name="arrow-left"
+        size={26}
+        color="black"
+        className="absolute top-4 left-4 z-50 bg-gray-600/50 rounded-full p-2"
+      />
       <Image
         source={{ uri: product.imageUrl }}
-        style={{ width: 200, height: 200 }}
+        style={{ width: "100%", height: 300 }}
         contentFit="cover"
+        className="rounded-lg"
       />
-      <Text className="text-2xl font-bold my-4">{product.name}</Text>
-      <Text className="text-xl text-gray-600">{product.price}</Text>
+      <Text className="text-3xl font-bold ml-4 mt-4 mb-1">{product.name}</Text>
+      <Text className="text-xl text-gray-600 ml-4">{formattedPrice}</Text>
+      <View className="flex flex-col items-start ml-4 mt-4">
+        <Text className="text-md text-gray-600">Category</Text>
+        <Text className="text-md text-gray-600">{product.category}</Text>
+      </View>
       {/* Add more product details here */}
     </View>
   );

@@ -8,7 +8,7 @@ export default function ProductList() {
   const renderItem = ({ item: product }: { item: Product }) => (
     <Link
       href={{
-        pathname: "/(productId)/[id]",
+        pathname: "/(productId)/[id]/page",
         params: { id: product.id.toString() },
       }}
     >
