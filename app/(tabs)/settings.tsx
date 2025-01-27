@@ -1,10 +1,10 @@
-import { useNavigation } from "expo-router";
+import { useRouter } from "expo-router";
 import { View, Text, ScrollView, TouchableOpacity, FlatList } from "react-native";
 
 
 export default function Settings() {
   
-const navigation = useNavigation();
+const navigation = useRouter();
 
   return (
     <ScrollView className="h-full">
