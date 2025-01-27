@@ -15,10 +15,11 @@ const navigation = useRouter();
         <View className="flex-col justify-start mr-10 gap-6 mb-10">
           <FlatList 
             data={[
-              { key: "Account", route: "/(tabs)/(settings)/account" },
-              { key: "Preferences", route: "/(tabs)/(settings)/preferences" },
-              { key: "Transaction History", route: "/(tabs)/(settings)/trx-history" },
-              { key: "Help", route: "/(tabs)/(settings)/help" },
+              { key: "Edit Profile", route: "/(settings)/(profile)/[uid]/page" },
+              { key: "Account", route: "/(settings)/account" },
+              { key: "Preferences", route: "/(settings)/preferences" },
+              { key: "Transaction History", route: "/(settings)/trx-history" },
+              { key: "Help", route: "/(settings)/help" },
             ]}
             renderItem={({ item }) => (
               <TouchableOpacity
