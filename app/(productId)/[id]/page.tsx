@@ -23,7 +23,7 @@ export default function ProductDetailScreen() {
     minimumFractionDigits: 0,
   }).format(product.price);
 
-  console.log(product.name, "is visited");
+  console.log(product.name, "is visited at", new Date().toTimeString());
 
   return (
     <View className="">
@@ -32,6 +32,7 @@ export default function ProductDetailScreen() {
         size={26}
         color="black"
         className="absolute top-4 left-4 z-50 bg-gray-600/50 rounded-full p-2"
+        onPress={() => router.replace("/(tabs)")}
       />
       <Image
         source={{ uri: product.imageUrl }}

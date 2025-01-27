@@ -3,14 +3,22 @@ import React from "react";
 import { View, Text, ScrollView, FlatList } from "react-native";
 import ProductCard from "./ProductCard";
 import { products } from "../data/sample-product";
+import { Link } from "expo-router";
 
-const renderItem = ({ item }: { item: Product }) => (
-  <ProductCard
-    product={item}
-    viewClassName="mr-4 p-2"
-    textClassName="text-xs"
-    imageResize={{ width: 128, height: 128 }}
-  />
+const renderItem = ({ item: product }: { item: Product }) => (
+  <Link
+    href={{
+      pathname: "/(productId)/[id]/page",
+      params: { id: product.id.toString() },
+    }}
+  >
+    <ProductCard
+      product={product}
+      viewClassName="p-2"
+      textClassName="text-sm"
+      imageResize={{ width: 128, height: 128 }}
+    />
+  </Link>
 );
 
 export default function FeaturedProducts() {
