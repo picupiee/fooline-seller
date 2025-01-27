@@ -12,7 +12,7 @@ const navigation = useRouter();
         <Text className=" text-black text-[40px] font-bold mb-10">
           Settings
         </Text>
-        <View className="flex-col justify-start mr-10 gap-6 mb-10">
+        <View className="flex flex-col items-center">
           <FlatList 
             data={[
               { key: "Edit Profile", route: "/(settings)/(profile)/[uid]/page" },
