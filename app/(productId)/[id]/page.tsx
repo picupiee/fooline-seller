@@ -1,5 +1,5 @@
 import { router, useLocalSearchParams } from "expo-router";
-import { View, Text, Pressable } from "react-native";
+import { View, Text, Pressable, ScrollView } from "react-native";
 import { Image } from "expo-image";
 import { products } from "../../data/sample-product";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -26,7 +26,7 @@ export default function ProductDetailScreen() {
   console.log(product.name, "is visited at", new Date().toTimeString());
 
   return (
-    <View className="">
+    <ScrollView className="">
       <MaterialCommunityIcons
         name="arrow-left"
         size={26}
@@ -45,8 +45,13 @@ export default function ProductDetailScreen() {
       <View className="flex flex-col items-start ml-4 mt-4">
         <Text className="text-md text-gray-600">Category</Text>
         <Text className="text-md text-gray-600">{product.category}</Text>
+        <Text className="text-xl text-black mt-10">Product Description</Text>
+        <Text className="text-lg text-gray-600 mt-4">
+          {product.description}
+        </Text>
       </View>
+
       {/* Add more product details here */}
-    </View>
+    </ScrollView>
   );
 }
