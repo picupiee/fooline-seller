@@ -1,4 +1,4 @@
-# **FooLine** - Neighborhood's Online Marketplace 🛒 🍜
+# **fooline-seller** - Sellers App for FooLine Marketplace 🛒 🍜
 
 ## About this app
 

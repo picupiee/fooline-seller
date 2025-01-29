@@ -1,23 +1,35 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, ImageBackground } from "react-native";
-import { BlurView } from "expo-blur";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 export default function HeroSection() {
-  const [tagline, setTagline] = useState("");
+  const tagline = "Let's start serve hungry people!";
   const [hourGreeting, setHourGreeting] = useState("Morning");
+  const username = "PicuPiee";
+  const [emoteGreet, setEmoteGreet] = useState<React.JSX.Element | null>(null);
 
   useEffect(() => {
     const date = new Date();
     const hour = date.getHours();
     if (hour < 12) {
-      setTagline("It is a good time for a breakfast!");
       setHourGreeting("Morning");
+      setEmoteGreet(
+        <MaterialCommunityIcons name="weather-sunset" size={28} color="black" />
+      );
     } else if (hour < 16) {
-      setTagline("It is a good time for a lunch!");
       setHourGreeting("Afternoon");
+      setEmoteGreet(
+        <MaterialCommunityIcons
+          name="weather-partly-cloudy"
+          size={28}
+          color="black"
+        />
+      );
     } else {
-      setTagline("Let's end the day with good dinner from home!");
       setHourGreeting("Evening");
+      setEmoteGreet(
+        <MaterialCommunityIcons name="weather-night" size={28} color="black" />
+      );
     }
   }, []);
 
@@ -26,7 +38,7 @@ export default function HeroSection() {
       <View>
         <View className="p-4">
           <Text className="text-black font-bold text-3xl">
-            Good {hourGreeting}
+            Good {hourGreeting}, {username} {emoteGreet}
           </Text>
           <Text className="text-black font-semibold text-xl">{tagline}</Text>
         </View>

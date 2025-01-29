@@ -2,6 +2,7 @@
 import React from "react";
 import { View, Text, Pressable } from "react-native";
 import { Image } from "expo-image";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 interface Product {
   id: number;
@@ -13,7 +14,7 @@ interface Product {
 interface ProductCardProps {
   viewClassName?: string;
   textClassName?: string;
-  imageResize: { widht: number; height: number };
+  imageResize: { width: number; height: number };
 }
 
 const ProductCard: React.FC<Product> = ({
@@ -36,8 +37,11 @@ const ProductCard: React.FC<Product> = ({
       />
       <Text className={`${textClassName}`}>{product.name}</Text>
       <Text className={`${textClassName} text-gray-500`}>{formattedPrice}</Text>
-      <Pressable className="absolute top-2 right-3 opacity-60 active:opacity-100">
-        <Text className="text-lg">♥</Text>
+      <Pressable
+        className="absolute top-3 right-3 opacity-60 active:opacity-100"
+        onPress={() => console.log(product.name, "heart is pressed!")}
+      >
+        <MaterialCommunityIcons name="heart" size={20} color="red" />
       </Pressable>
     </View>
   );
