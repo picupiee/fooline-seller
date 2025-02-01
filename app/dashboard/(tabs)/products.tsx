@@ -20,6 +20,7 @@ import { db, auth } from "@/firebase";
 import AddProductForm from "@/app/components/AddProductForm";
 import { formatToIDR } from "@/app/utils/currencyFormatter";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { Image } from "expo-image";
 
 export default function ProductList() {
   const [products, setProducts] = useState([]);
@@ -77,25 +78,6 @@ export default function ProductList() {
     );
   }
 
-  // if (products.length === 0) {
-  //   return (
-  //     <View className="flex-1 justify-center items-center">
-  //       <Text className="text-lg text-gray-600">No products available.</Text>
-  //       <Pressable
-  //         onPress={() => {
-  //           console.log("Button Pressed");
-  //           setModalVisible(true);
-  //         }}
-  //         className="mt-4"
-  //       >
-  //         <Text className="py-2 px-4 rounded-md text-white bg-blue-600">
-  //           Add a new Product
-  //         </Text>
-  //       </Pressable>
-  //     </View>
-  //   );
-  // }
-
   return (
     <View className="h-full p-2">
       <Modal
@@ -148,11 +130,22 @@ export default function ProductList() {
             </Pressable>
           </View>
           <FlatList
+            contentContainerStyle={{ paddingBottom: 150 }}
+            showsVerticalScrollIndicator={false}
             data={products}
             keyExtractor={(item) => item.id}
             renderItem={({ item }) => (
-              <View className="flex-row items-center justify-between">
-                <View className="p-4 border-b border-gray-200 flex-col items-start">
+              <View className="flex-row items-center border-b-4 border-gray-300 mb-2">
+                <Image
+                  source={item.imageUrl}
+                  style={{
+                    width: 100,
+                    height: 100,
+                    borderRadius: 10,
+                    margin: 5,
+                  }}
+                />
+                <View className="p-4 border-gray-200 flex-col items-start">
                   <Text className="text-lg font-semibold">{item.name}</Text>
                   <Text className="text-sm text-gray-600">
                     {item.description}
@@ -161,21 +154,23 @@ export default function ProductList() {
                     {formatToIDR(item.price)}
                   </Text>
                 </View>
-                <View className="flex flex-row items-center mr-2 gap-2">
-                  <MaterialCommunityIcons
-                    name="pencil"
-                    size={18}
-                    color="gray"
-                    className="rounded-full p-2 active:border-black bg-gray-300 active:bg-gray-200"
-                    onPress={() => handleEditProduct(item)} // Pass the product data here
-                  />
-                  <MaterialCommunityIcons
-                    name="delete"
-                    size={18}
-                    color="gray"
-                    className="rounded-full p-2 active:border-black bg-gray-300 active:bg-gray-200"
-                    onPress={() => handleDeleteDoc(item.id)}
-                  />
+                <View className="absolute right-0">
+                  <View className="flex flex-row items-center mr-2 gap-2">
+                    <MaterialCommunityIcons
+                      name="pencil"
+                      size={18}
+                      color="gray"
+                      className="rounded-full p-2 active:border-black bg-gray-300 active:bg-gray-200"
+                      onPress={() => handleEditProduct(item)} // Pass the product data here
+                    />
+                    <MaterialCommunityIcons
+                      name="delete"
+                      size={18}
+                      color="gray"
+                      className="rounded-full p-2 active:border-black bg-gray-300 active:bg-gray-200"
+                      onPress={() => handleDeleteDoc(item.id)}
+                    />
+                  </View>
                 </View>
               </View>
             )}

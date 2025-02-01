@@ -8,6 +8,8 @@ node_modules/
 dist/
 web-build/
 expo-env.d.ts
+firebase.js
+cloudinary.js
 
 # Native
 *.orig.*
@@ -36,5 +38,3 @@ yarn-error.*
 *.tsbuildinfo
 
 app-example
-
-firebase.js

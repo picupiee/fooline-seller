@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: "white",
+    backgroundColor: "rgba(255, 255, 255, 0.7)", // mid-transparent background
     marginHorizontal: 20,
     paddingVertical: 15,
     borderRadius: 25,
